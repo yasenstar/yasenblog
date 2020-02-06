@@ -562,6 +562,61 @@
 
 
   
+    <article id="post-phpadmin-login-md" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/01/01/phpadmin-login-md/" class="article-date">
+  <time class="dt-published" datetime="2020-01-01T17:22:23.000Z" itemprop="datePublished">2020-01-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/01/01/phpadmin-login-md/">phpMyAdmin login issue on PHP/Ubuntu</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Learning MySQL now (from Robin Nixon’s Learning PHP, MySQL, JavaScript &amp; CSS), although to use MySQL it is essential to learn main commands and how they work, but it can be much quicker and simpler to use a program such as phpMyAdmin to manage databases and tables.</p>
+<p>In my Ubuntu 20.04, the PHP has been already configured, however, due to there’s NGINX first that occupied port 80 already, have to configured PHP to use port 8080 instead.</p>
+<p>When you installing phpMyAdmin, it by default using port 80 to open, so need to switch to 8080 to see the login screen, my problem starts from here, I already set initial password, but when I try to login using user name “phpMyAdmin” with password, I got following error message:</p>
+<p>MySQL: the server requested authentication method unknown to the client</p>
+<p>Thanks for <a href="https://stackoverflow.com/questions/52364415/php-with-mysql-8-0-error-the-server-requested-authentication-method-unknown-to" target="_blank" rel="noopener">Elias Gikonyo</a>, the problem is due to the authentication type, as below:</p>
+<p>This is usually attributed to the authentication plugin that your mysql database is using.</p>
+<p>By default and for some reason, mysql 8 default plugin is auth_socket. Applications will most times expect to log in to your database using a password.</p>
+<p>If you have not yet already changed your mysql default authentication plugin, you can do so by:</p>
+<ol>
+<li>Log in as root to mysql</li>
+<li>Run this sql command:</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password</span><br><span class="line">BY &#39;password&#39;;</span><br></pre></td></tr></table></figure>
+
+<p>Replace ‘password’ with your root password. In case your application does not log in to your database with the root user, replace the ‘root’ user in the above command with the user that your application uses.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/01/01/phpadmin-login-md/" data-id="ck6b0gnp00000xg0o1ust6o03" data-title="phpMyAdmin login issue on PHP/Ubuntu" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/phpMyAdmin/" rel="tag">phpMyAdmin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
 
 
 </section>
@@ -575,7 +630,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DNS/" rel="tag">DNS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PMT/" rel="tag">PMT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clock/" rel="tag">clock</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datalist/" rel="tag">datalist</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/domain/" rel="tag">domain</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-page/" rel="tag">github page</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/microsoft/" rel="tag">microsoft</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sorting/" rel="tag">sorting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/" rel="tag">wordpress</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DNS/" rel="tag">DNS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PMT/" rel="tag">PMT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clock/" rel="tag">clock</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datalist/" rel="tag">datalist</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/domain/" rel="tag">domain</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-page/" rel="tag">github page</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/microsoft/" rel="tag">microsoft</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/phpMyAdmin/" rel="tag">phpMyAdmin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sorting/" rel="tag">sorting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/" rel="tag">wordpress</a></li></ul>
     </div>
   </div>
 
@@ -585,7 +640,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/PMT/" style="font-size: 10px;">PMT</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/clock/" style="font-size: 10px;">clock</a> <a href="/tags/datalist/" style="font-size: 10px;">datalist</a> <a href="/tags/domain/" style="font-size: 10px;">domain</a> <a href="/tags/github/" style="font-size: 20px;">github</a> <a href="/tags/github-page/" style="font-size: 10px;">github page</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/microsoft/" style="font-size: 10px;">microsoft</a> <a href="/tags/sorting/" style="font-size: 10px;">sorting</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a>
+      <a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/PMT/" style="font-size: 10px;">PMT</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/clock/" style="font-size: 10px;">clock</a> <a href="/tags/datalist/" style="font-size: 10px;">datalist</a> <a href="/tags/domain/" style="font-size: 10px;">domain</a> <a href="/tags/github/" style="font-size: 20px;">github</a> <a href="/tags/github-page/" style="font-size: 10px;">github page</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/microsoft/" style="font-size: 10px;">microsoft</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/phpMyAdmin/" style="font-size: 10px;">phpMyAdmin</a> <a href="/tags/sorting/" style="font-size: 10px;">sorting</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a>
     </div>
   </div>
 
@@ -594,7 +649,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li></ul>
     </div>
   </div>
 
