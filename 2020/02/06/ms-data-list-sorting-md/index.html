@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>How to Manage the Data List Sorting in Microsoft Product (Excel, SQL, etc.) | Yasen&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="How to Manage the Data List Sorting in Microsoft Product (Excel, SQL, etc.)Microsoft product family relating to spreadsheet treatment, e.g. Excel, SQL DB, (possible including Access), are dealing with">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Manage the Data List Sorting in Microsoft Product (Excel, SQL, etc.)">
+<meta property="og:url" content="http://yoursite.com/2020/02/06/ms-data-list-sorting-md/index.html">
+<meta property="og:site_name" content="Yasen&#39;s Blog">
+<meta property="og:description" content="How to Manage the Data List Sorting in Microsoft Product (Excel, SQL, etc.)Microsoft product family relating to spreadsheet treatment, e.g. Excel, SQL DB, (possible including Access), are dealing with">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/pics/customized_sorting_in_excel.jpg">
+<meta property="article:published_time" content="2020-02-06T05:17:29.000Z">
+<meta property="article:modified_time" content="2020-02-06T05:18:00.418Z">
+<meta property="article:author" content="Yasen Zhao">
+<meta property="article:tag" content="datalist, sorting, microsoft">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/pics/customized_sorting_in_excel.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Yasen&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Yasen&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ms-data-list-sorting-md" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/02/06/ms-data-list-sorting-md/" class="article-date">
+  <time class="dt-published" datetime="2020-02-06T05:17:29.000Z" itemprop="datePublished">2020-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      How to Manage the Data List Sorting in Microsoft Product (Excel, SQL, etc.)
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="How-to-Manage-the-Data-List-Sorting-in-Microsoft-Product-Excel-SQL-etc"><a href="#How-to-Manage-the-Data-List-Sorting-in-Microsoft-Product-Excel-SQL-etc" class="headerlink" title="How to Manage the Data List Sorting in Microsoft Product (Excel, SQL, etc.)"></a>How to Manage the Data List Sorting in Microsoft Product (Excel, SQL, etc.)</h1><p>Microsoft product family relating to spreadsheet treatment, e.g. Excel, SQL DB, (possible including Access), are dealing with data list, so it’s important to understand how the sorting rules applying to the data list.</p>
+<p>In English language, by default, there’re A-Z and Z-A methods, for sorting via comparing from the first character, in case same, then second character, etc.., till the end of the word (or full data phrase in the cell).</p>
+<p>Adding double-bytes language, it’s becoming complicated, this file intends to document how the sorting applys to Chinese words in the data list.</p>
+<p>Using below table as example, be noticed, there’s PinYin used by Chinese to indicate the pronounciation of Chinese character.<br><em>From <a href="https://en.wikipedia.org/wiki/Pinyin" target="_blank" rel="noopener">here in wikipedia</a> you can learn information about Chinese PinYin.</em></p>
+<table>
+<thead>
+<tr>
+<th>中文名称（Chinese Name）</th>
+<th align="right">拼音名称（Chinese PinYin）</th>
+<th align="center">英文名称（English Name）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>卡车</td>
+<td align="right">kache</td>
+<td align="center">truck</td>
+</tr>
+<tr>
+<td>客车</td>
+<td align="right">keche</td>
+<td align="center">bus</td>
+</tr>
+<tr>
+<td>工程机械</td>
+<td align="right">gongchengjixie</td>
+<td align="center">construction equipment</td>
+</tr>
+</tbody></table>
+<p>(currently it’s no specific order)</p>
+<p>If we sort by A-Z in English Name column, it’s naturally getting as below:</p>
+<table>
+<thead>
+<tr>
+<th>中文名称（Chinese Name）</th>
+<th align="right">拼音名称（Chinese PinYin）</th>
+<th align="center">英文名称（English Name）<em>(A-Z)</em></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>客车</td>
+<td align="right">keche</td>
+<td align="center">bus</td>
+</tr>
+<tr>
+<td>工程机械</td>
+<td align="right">gongchengjixie</td>
+<td align="center">construction equipment</td>
+</tr>
+<tr>
+<td>卡车</td>
+<td align="right">kache</td>
+<td align="center">truck</td>
+</tr>
+</tbody></table>
+<h2 id="Chinese-Language-List"><a href="#Chinese-Language-List" class="headerlink" title="Chinese Language List"></a>Chinese Language List</h2><p>If we sort by A-Z in Chinese PinYin, the same rule about applies, just that will based on the alphabet order in PinYin</p>
+<table>
+<thead>
+<tr>
+<th>中文名称（Chinese Name）</th>
+<th align="right">拼音名称（Chinese PinYin）<em>(A-Z)</em></th>
+<th align="center">英文名称（English Name）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>客车</td>
+<td align="right">keche</td>
+<td align="center">bus</td>
+</tr>
+<tr>
+<td>卡车</td>
+<td align="right">kache</td>
+<td align="center">truck</td>
+</tr>
+<tr>
+<td>工程机械</td>
+<td align="right">gongchengjixie</td>
+<td align="center">construction equipment</td>
+</tr>
+</tbody></table>
+<p>Now coming to Chinese Name column, <strong>the default rule <em>(from Microsoft)</em> for Chinese words sorting is based on their Pinyin’s A-Z or Z-A</strong>, with this in mind, if we just choose A-Z, you get same as above Pinyin, let’s try Z-A for Chinese Name column, you get below:</p>
+<table>
+<thead>
+<tr>
+<th>中文名称（Chinese Name）<em>Z-A</em></th>
+<th align="right">拼音名称（Chinese PinYin）</th>
+<th align="center">英文名称（English Name）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>工程机械</td>
+<td align="right">gongchengjixie  <strong>???</strong></td>
+<td align="center">construction equipment</td>
+</tr>
+<tr>
+<td>卡车</td>
+<td align="right">kache</td>
+<td align="center">truck</td>
+</tr>
+<tr>
+<td>客车</td>
+<td align="right">keche</td>
+<td align="center">bus</td>
+</tr>
+</tbody></table>
+<p><em>but here I don’t understand why g and k’s order is not correct!</em></p>
+<p>Anyway, this is not the understandable sorting result, but the lucky way is Excel (need to check SQL DB) provides one option to create Customized Sorting Rule, refer to below screenshot, through this, actually we can direct indicate how the different Chinese words should be sorted through adding one sorting list, then, instead of choose A-Z or Z-A, you can choose from the “custom list…”:</p>
+<p><img src="/pics/customized_sorting_in_excel.jpg" alt="Create Customized Sorting Rule in Excel"></p>
+<p>From Custom List, it’s able to sort by whatever order we want.</p>
+<p>I think this can be applied to other language like Japanese, Indic, Korean, Arabic, etc..</p>
+<h2 id="Japanese-TBA"><a href="#Japanese-TBA" class="headerlink" title="Japanese (TBA)"></a>Japanese (TBA)</h2><h2 id="Indian-Local-Language-Indic-TBA"><a href="#Indian-Local-Language-Indic-TBA" class="headerlink" title="Indian Local Language - Indic (TBA)"></a>Indian Local Language - Indic (TBA)</h2><h2 id="Korean-TBA"><a href="#Korean-TBA" class="headerlink" title="Korean (TBA)"></a>Korean (TBA)</h2><h2 id="more…"><a href="#more…" class="headerlink" title="(more…)"></a>(more…)</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/06/ms-data-list-sorting-md/" data-id="ck6aaidk800004v0ofw9n3yce" data-title="How to Manage the Data List Sorting in Microsoft Product (Excel, SQL, etc.)" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/datalist-sorting-microsoft/" rel="tag">datalist, sorting, microsoft</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/06/pmt-foruma-md/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">关于PMT还贷函数的计算</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/PMT/" rel="tag">PMT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datalist-sorting-microsoft/" rel="tag">datalist, sorting, microsoft</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-github-page-domain-DNS/" rel="tag">github, github page, domain, DNS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/PMT/" style="font-size: 10px;">PMT</a> <a href="/tags/datalist-sorting-microsoft/" style="font-size: 10px;">datalist, sorting, microsoft</a> <a href="/tags/github-github-page-domain-DNS/" style="font-size: 10px;">github, github page, domain, DNS</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/02/06/ms-data-list-sorting-md/">How to Manage the Data List Sorting in Microsoft Product (Excel, SQL, etc.)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/06/pmt-foruma-md/">关于PMT还贷函数的计算</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/05/Github_Repo_Quick_Setup/">Quick Setup on Github Repository</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/05/github-page-custom-domain-md/">Managing a custom domain for Github Page</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/04/clock-display-md/">Display Clock on Screen</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Yasen Zhao<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
